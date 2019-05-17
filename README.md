@@ -1,29 +1,67 @@
-# sonma
+# Vue Cli3 with Vuetify & Ant Design
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
+npm run build-morder
+// or
 npm run build
 ```
 
-### Run your tests
+### Github Deploy
+
+1. github의 repository 이름으로 public path를 변경한다.
+   (사용자 Root Page일 경우 제외)
+
+vue.config.js
+
 ```
-npm run test
+module.exports = {
+  ...
+  publicPath: [REPOSITORY NAME],
+  ...
+}
 ```
 
-### Lints and fixes files
+2. github deploy command
+
 ```
-npm run lint
+npm run deploy-github
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Customize Ant Design Properties
+
+vue.config.js
+
+```
+module.exports = {
+  ...
+  css: {
+    loaderOptions: {
+      less: {
+        modifyVars: {
+          // LINK : https://github.com/vueComponent/ant-design-vue/blob/master/components/style/themes/default.less
+          'link-color': '#1DA57A',
+          'border-radius-base': '2px',
+        },
+        javascriptEnabled: true
+      }
+    }
+  }
+  ...
+};
+```
+
+수정 후 반드시 server를 다시 수행 하여야 한다.
